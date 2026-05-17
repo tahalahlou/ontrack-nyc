@@ -1,22 +1,23 @@
+# OnTrack NYC
 
-# realtimerail.nyc web app
+Real-time NYC Subway tracking app covering all 26 routes and 900+ stops. 
+Built with React and TypeScript, deployed via Docker and Nginx.
 
-This repository hosts the UI code for the
-[realtimerail.nyc web app](https://www.realtimerail.nyc). 
-The UI is written using React.
-It accesses NYC subway data using
-[Transiter](https://www.github.com/jamespfennell/transiter).
+## What I Built
 
-The codebase was started using `create-react-app`.
-Assuming that you have `node` installed,
-the development server listing on port 3000 can be launched using:
-```
+- Real-time train arrival interface with 5-second live polling across 23 subway lines and 3 shuttles
+- Visibility-aware polling — suspends background requests when tab is unfocused to reduce server load
+- 2-stage Docker build: Node compile → Nginx runtime with 1-year static asset cache TTL
+- 4-stage CI/CD pipeline via GitHub Actions with automated versioned releases to Docker Hub
+
+## Stack
+TypeScript, React, Docker, Nginx, REST APIs
+
+## Run Locally
+
+```bash
 npm start
 ```
-An optimized production build can be created using:
-```
-npm run build
-```
 
-In production the app is run using Docker.
-The project's Docker image is an Nginx image containing the compiled files and some basic caching configuration.
+## Data
+NYC subway data served via [Transiter](https://github.com/jamespfennell/transiter)
